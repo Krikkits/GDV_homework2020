@@ -1,0 +1,6 @@
+Width 1024
+Height 512
+Material 0 32
+  Diffuse 0.800000011920929 0.800000011920929 0.800000011920929
+  Emissive 0.0 0.0 0.0
+  Texture Checkerboard.ppm
