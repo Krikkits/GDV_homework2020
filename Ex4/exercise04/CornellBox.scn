@@ -1,0 +1,23 @@
+Width 300
+Height 300
+Material 0 2
+  Diffuse 1.0 1.0 1.0
+  Emissive 7.0 7.0 7.0
+Material 2 514
+  Diffuse 1.0 0.0 0.0
+  Emissive 0.0 0.0 0.0
+Material 514 1026
+  Diffuse 0.0 1.0 0.0
+  Emissive 0.0 0.0 0.0
+Material 1026 1346
+  Diffuse 1.0 1.0 1.0
+  Emissive 0.0 0.0 0.0
+Material 1346 1538
+  Diffuse 1.0 0.0 0.0
+  Emissive 0.0 0.0 0.0
+Material 1538 2498
+  Diffuse 0.0 1.0 0.0
+  Emissive 0.0 0.0 0.0
+Material 2498 4034
+  Diffuse 1.0 1.0 1.0
+  Emissive 0.0 0.0 0.0
