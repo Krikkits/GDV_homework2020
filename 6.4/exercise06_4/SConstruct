@@ -1,0 +1,46 @@
+import os
+#import commands
+import string
+
+Decider('timestamp-newer')
+SetOption('implicit_cache', 1)
+VariantDir('build', 'src', duplicate=0)
+
+sources = """
+  ./build/main4.cpp
+  ./build/bvh.cpp
+  ./build/utils/fileio.cpp
+"""
+
+opts = Variables()
+opts.AddVariables(
+  BoolVariable('debug', 'Enable Debug Mode', False),
+  BoolVariable('inter', 'Enable Interactive Rendering', True)
+)
+
+env = Environment(ENV = os.environ, options = opts)
+Help(opts.GenerateHelpText(env))
+
+flags = ''
+libs = ''
+defines = ''
+
+if env['debug']:
+  flags += '-g -Wall -pedantic'
+else:
+  flags += '-Wall -fopenmp -pedantic -O3 -fexpensive-optimizations -march=native -mfpmath=sse'
+
+if env['inter']:
+  defines += ' -DINTERACTIVE'
+  libs += 'SDL GL GLU'
+  env.ParseConfig('sdl-config --cflags')
+  env.ParseConfig('sdl-config --libs')
+
+#env.Append(LIBPATH='lib')
+env.Append(CCFLAGS = flags)
+env.Append(CPPDEFINES = Split(defines))
+env.Append(LIBS = Split(libs))
+
+coRT = env.Program('./coRT', Split(sources))
+Default(coRT)
+
